@@ -32,7 +32,7 @@ LIBS_PATH		= lib
 BUILD_PATH		= .build
 
 
-FILES	= main.c array_length.c convertions.c element.c
+FILES	= main.c stack.c getters.c checks.c swap.c small.c big.c
 
 SRC						= $(addprefix $(SRC_PATH)/, $(FILES))
 OBJS					= $(SRC:$(SRC_PATH)/%.c=$(BUILD_PATH)/%.o)
