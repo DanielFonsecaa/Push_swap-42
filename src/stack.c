@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 18:05:33 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/05/29 18:44:14 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/05/30 16:08:09 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ void	ft_create_stack(char **argv, t_stack **stack)
 	int		i;
 	t_stack	*list;
 
+	i = 0;
 	*stack = malloc(sizeof(t_stack));
 	if (!stack)
-		return (NULL);
-	*stack->value = ft_atol(argv[i++]);
-	*stack->index = -1;
+		return ;
+	(*stack)->value = ft_atol(argv[i++]);
+	(*stack)->index = -1;
 	list = *stack;
 	while (argv[i])
 	{
@@ -29,7 +30,7 @@ void	ft_create_stack(char **argv, t_stack **stack)
 		if (!list->next)
 		{
 			ft_free(stack);
-			return (NULL);
+			return ;
 		}
 		list = list->next;
 		list->value = ft_atol(argv[i]);
@@ -65,12 +66,12 @@ void	ft_put_all_index(t_stack **stack, int index)
 	int		min;
 	t_stack	*temp;
 
+	temp = *stack;
 	while (temp->next && temp->index != -1)
 		temp = temp->next;
 	if (temp->index != -1)
 		return ;
 	min = temp->value;
-	temp = *stack;
 	while (temp)
 	{
 		if (min > temp->value && temp->index == -1)
@@ -79,7 +80,7 @@ void	ft_put_all_index(t_stack **stack, int index)
 	}
 	temp = *stack;
 	while (temp->value != min)
-		temp = temp->value;
+		temp = temp->next;
 	temp->index = index;
 	ft_put_all_index(stack, ++index);
 }
@@ -91,7 +92,7 @@ void	ft_free(t_stack **stack)
 	while (*stack)
 	{
 		temp = *stack;
-		*stack = *stack->next;
+		*stack = (*stack)->next;
 		free(temp);
 	}
 	if (stack)

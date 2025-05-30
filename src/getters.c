@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 18:02:07 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/05/29 19:14:53 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/05/30 16:33:27 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,20 @@ int	ft_get_bits(t_stack **stack)
 	while ((max >> bits) != 0)
 		bits++;
 	return (bits);
+}
+
+int	ft_get_min(t_stack **stack)
+{
+	t_stack	*temp;
+	int		min;
+
+	temp = *stack;
+	min = temp->value;
+	while (temp)
+	{
+		if (temp->value < min)
+			min = temp->value;
+		temp = temp->next;
+	}
+	return (min);
 }
