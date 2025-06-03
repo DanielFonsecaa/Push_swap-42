@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 13:57:49 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/05/30 15:44:42 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/06/03 12:36:04 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_small(t_stack **stack_a, t_stack **stack_b, int size);
 void	ft_sortlist_size2(t_stack **stack_a, t_stack **stack_b);
 void	ft_sortlist_size3(t_stack **stack_a, t_stack **stack_b);
 void	ft_sortlist_size4(t_stack **stack_a, t_stack **stack_b);
+void	ft_sortlist_size5(t_stack **stack_a, t_stack **stack_b);
 
 //stack functions
 void	ft_create_stack(char **argv, t_stack **stack);

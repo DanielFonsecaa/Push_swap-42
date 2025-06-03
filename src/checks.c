@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 17:20:14 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/05/30 16:15:40 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/06/03 14:16:35 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	ft_is_sorted(t_stack **stack)
 	while (temp->next)
 	{
 		if (temp->value > temp->next->value)
-			return (1);
+			return (0);
 		temp = temp->next;
 	}
-	return (0);
+	return (1);
 }
 
 int	ft_is_digit(char **argv)
@@ -90,7 +90,7 @@ int	ft_check_all(int argc, char **argv, t_stack **stack)
 {
 	if (!ft_is_digit(argv))
 		return (1);
-	if (!ft_is_sorted(stack))
+	if (ft_is_sorted(stack))
 		return (1);
 	if (!ft_is_integer(argv))
 		return (1);

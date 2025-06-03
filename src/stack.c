@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 18:05:33 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/05/30 16:08:09 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/06/03 14:15:31 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,8 +95,7 @@ void	ft_free(t_stack **stack)
 		*stack = (*stack)->next;
 		free(temp);
 	}
-	if (stack)
-		free(stack);
+	free(stack);
 }
 
 void	ft_free_arguments(char **argv)
