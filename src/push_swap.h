@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 13:57:49 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/06/03 12:36:04 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/06/04 16:31:24 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int		ft_is_digit(char **argv);
 int		ft_is_integer(char **argv);
 int		ft_is_duplicate(t_stack **stack);
 int		ft_check_all(int argc, char **argv, t_stack **stack);
+int		ft_check_errors(char **argv, int argc);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 18:05:33 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/06/03 14:15:31 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/06/04 19:15:20 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,13 @@ void	ft_create_stack(char **argv, t_stack **stack)
 		return ;
 	(*stack)->value = ft_atol(argv[i++]);
 	(*stack)->index = -1;
+	(*stack)->next = NULL;
 	list = *stack;
 	while (argv[i])
 	{
 		list->next = malloc(sizeof(t_stack));
 		if (!list->next)
-		{
-			ft_free(stack);
-			return ;
-		}
+			return (ft_free(stack));
 		list = list->next;
 		list->value = ft_atol(argv[i]);
 		list->index = -1;
