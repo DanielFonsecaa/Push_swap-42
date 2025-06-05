@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 19:10:35 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/06/04 11:09:25 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/06/05 11:35:34 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_big(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*temp;
 
 	bits = -1;
+	i = 0;
 	stack_size = ft_get_stack_size(stack_a);
 	ft_put_first_index(stack_a);
 	max_bits = ft_get_bits(stack_a);

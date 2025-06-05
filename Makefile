@@ -104,6 +104,26 @@ get_checker:
 		echo "   $(B)$(GRN)Checker submodule already exists 🫰"; \
 	fi
 
+tester:		## Run the tester script
+	@echo "   $(B)$(CYA)Running Push Swap Tester$(D)"
+	@curl https://raw.githubusercontent.com/hu8813/tester_push_swap/main/pstester.py | python3 -
+
+visualizer:
+	@echo "   $(B)$(CYA)Setting up Push Swap Visualizer$(D)"
+	@if [ ! -d "push_swap_visualizer" ]; then \
+		echo "   $(B)$(YEL)Cloning visualizer repository$(D)"; \
+		git clone https://github.com/o-reo/push_swap_visualizer.git; \
+	else \
+		echo "   $(B)$(YEL)Visualizer repository already exists$(D)"; \
+	fi
+	@echo "   $(B)$(YEL)Building visualizer$(D)"
+	@mkdir -p push_swap_visualizer/build 
+	@cd push_swap_visualizer/build && cmake .. -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && make
+	@echo "   $(B)$(GRN)Visualizer build complete$(D): $(_SUCCESS)"
+	@echo "   $(B)$(CYA)Running visualizer$(D)"
+	@cd push_swap_visualizer/build && ./bin/visualizer
+
+
 clean:				## Remove object files
 	@echo "   $(B)$(YEL)Cleaning object files$(D)"
 	@$(RM) $(BUILD_PATH); 
@@ -118,15 +138,14 @@ libclean: fclean	## Remove libs
 	@echo "   $(B)$(YEL)Cleaning libraries$(D)"
 	@$(RM) $(LIBS_PATH)
 	@$(RM) checker_linux
+	@$(RM) push_swap_visualizer
+	@$(RM) push_swap.sh
 	@echo "   $(B)$(YEL)Removing $(CYA)lib & checker$(D) : $(_SUCCESS) 🫰"
 
 re: libclean all	## Purge & Recompile
 
-tester:		## Run the tester script
-	@echo "   $(B)$(CYA)Running Push Swap Tester$(D)"
-	@curl https://raw.githubusercontent.com/hu8813/tester_push_swap/main/pstester.py | python3 -
 
-.PHONY: all deps clean fclean libclean re tester get_libft get_checker
+.PHONY: all deps clean fclean libclean re tester get_libft get_checker visualizer
 
 #==============================================================================#
 #                                  UTILS                                       #

@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 18:02:07 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/05/30 16:33:27 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/06/05 11:33:57 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_get_bits(t_stack **stack)
 	temp = *stack;
 	max = temp->index;
 	bits = 0;
-	while (temp->next)
+	while (temp)
 	{
 		if (temp->index > max)
 			max = temp->index;

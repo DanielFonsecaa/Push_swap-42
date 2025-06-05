@@ -6,7 +6,7 @@
 /*   By: dda-fons <dda-fons@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 18:05:33 by dda-fons          #+#    #+#             */
-/*   Updated: 2025/06/04 19:15:20 by dda-fons         ###   ########.fr       */
+/*   Updated: 2025/06/05 11:26:13 by dda-fons         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_put_first_index(t_stack **stack)
 
 void	ft_put_all_index(t_stack **stack, int index)
 {
-	int		min;
+	long	min;
 	t_stack	*temp;
 
 	temp = *stack;
