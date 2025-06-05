@@ -66,6 +66,24 @@ By choosing Radix sort, I optimized my Push_swap solution and focused on an algo
 4. The sequence of operations is output to standard output.
 
 ---
+## Instruction Set
+
+For the following instructions, if the instruction is not possible, the part of
+it that can't be executed won't.
+
+| Code  | Instruction                         | Action                                                 |
+| ----- | ----------------------------------- | ------------------------------------------------------ |
+| `sa`  | swap a                              | swaps the 2 top elements of stack a                    |
+| `sb`  | swap b                              | swaps the 2 top elements of stack b                    |
+| `ss`  | swap a + swap b                     | both `sa` and `sb`                                     |
+| `pa`  | push a                              | moves the top element of stack b at the top of stack a |
+| `pb`  | push b                              | moves the top element of stack a at the top of stack b |
+| `ra`  | rotate a                            | shifts all elements of stack a from bottom to top      |
+| `rb`  | rotate b                            | shifts all elements of stack b from bottom to top      |
+| `rr`  | rotate a + rotate b                 | both `ra` and `rb`                                     |
+| `rra` | reverse rotate a                    | shifts all elements of stack a from top to bottom      |
+| `rrb` | reverse rotate b                    | shifts all elements of stack b from top to bottom      |
+| `rrr` | reverse rotate a + reverse rotate b | both `rra` and `rrb`                                   |
 
 ## Installation
 
@@ -108,6 +126,22 @@ The program will output the optimal sequence of stack operations needed to sort 
 
 ---
 
+## Visualizer
+```sh
+make visualizer
+```
+![Screenshot from 2025-06-05 13-39-53](https://github.com/user-attachments/assets/2eb7d1b0-3700-4e10-9af2-6ea23e57c432)
+
+---
+
+
+## Tester
+```sh
+make tester
+```
+![Screenshot from 2025-06-05 13-41-32](https://github.com/user-attachments/assets/47a8cee8-e8c3-42b5-8c56-73f3127645b3)
+
+---
 ## Further Reading
 
 For more on how Radix Sort works in Push_swap, check out this tutorial:  
