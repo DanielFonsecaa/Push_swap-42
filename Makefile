@@ -66,15 +66,16 @@ all: deps $(BUILD_PATH) $(NAME)	## Compile
 $(NAME): $(BUILD_PATH) $(LIBFT_ARC) $(OBJS)			## Compile
 	@echo "   $(B)$(YEL)Compiling $(MAG)$(NAME)$(YEL) mandatory version$(D)"
 	@$(CC) $(CFLAGS) $(OBJS) $(INC) $(LIBFT_ARC) -o $(NAME)
-	@echo "   [$(B)$(_SUCCESS) compiling $(MAG)$(NAME)$(D) $(YEL)🫰$(D)]"
+	@echo "  $(_SUCCESS) compiling $(MAG)$(NAME)$(D) $(YEL)📦📦📦$(D)"
+
 
 deps:		## Download/Update deps
 	@if test -d "$(LIBFT_PATH)" && test -f "checker_linux"; then \
 		echo "   $(B)$(RED)$(D) [$(GRN)Nothing to be done!$(D)]"; fi
 	@if test ! -d "$(LIBFT_PATH)"; then make get_libft; \
-		else echo "   $(B)$(YEL)[libft]$(D) folder found 🫰"; fi
+		else echo "   $(B)$(YEL)[libft]$(D) folder found ✔︎ 📂"; fi
 	@if test ! -f "checker_linux"; then make get_checker; \
-		else echo "   $(B)$(YEL)[checker]$(D) file found 🫰"; fi
+		else echo "   $(B)$(YEL)[checker]$(D) file found ✔︎ 📂"; fi
 
 $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c $(HEADERS)
 	@mkdir -p $(dir $@)
@@ -83,7 +84,7 @@ $(BUILD_PATH)/%.o: $(SRC_PATH)/%.c $(HEADERS)
 
 $(BUILD_PATH):
 	@$(MKDIR_P) $(BUILD_PATH)
-	@echo "  $(B)$(YEL)Creating $(CYA)$(BUILD_PATH)$(YEL) folder:$(D) $(_SUCCESS)"
+	@echo "  $(B)$(YEL)Creating $(CYA)$(BUILD_PATH)$(YEL) folder : $(D) $(_SUCCESS) ✔︎ 📂"
 
 $(LIBFT_ARC):
 	@$(MAKE) $(LIBFT_PATH) extra
@@ -92,16 +93,16 @@ get_libft:
 	@echo "   $(B)$(CYA)Getting Libft$(D)"
 	@$(MKDIR_P) $(LIBS_PATH)
 	@git clone $(LIBFT_URL) $(LIBFT_PATH);
-	@echo "   $(B)$(GRN)Libft submodule download$(D): $(_SUCCESS)"
+	@echo "   $(B)$(GRN)Libft submodule download$(D): $(_SUCCESS) ✔︎ 💾"
 
 get_checker:
 	@echo "   $(B)$(CYA)Getting Checker submodule$(D)"
 	@if test ! -f "checker_linux"; then \
 		curl -O $(CHECKER_URL); \
 		chmod +x checker_linux; \
-		echo "   $(B)$(GRN)Checker submodule download$(D): $(_SUCCESS)"; \
+		echo "   $(B)$(GRN)Checker submodule download$(D): $(_SUCCESS) ✔︎ 💾"; \
 	else \
-		echo "   $(B)$(GRN)Checker submodule already exists 🫰"; \
+		echo "   $(B)$(GRN)Checker submodule already exists ✔︎ ✔︎"; \
 	fi
 
 tester:		## Run the tester script
@@ -111,12 +112,12 @@ tester:		## Run the tester script
 visualizer:
 	@echo "   $(B)$(CYA)Setting up Push Swap Visualizer$(D)"
 	@if [ ! -d "push_swap_visualizer" ]; then \
-		echo "   $(B)$(YEL)Cloning visualizer repository$(D)"; \
+		echo "   $(B)$(YEL)Cloning visualizer repository$(D) 💾💾"; \
 		git clone https://github.com/o-reo/push_swap_visualizer.git; \
 	else \
 		echo "   $(B)$(YEL)Visualizer repository already exists$(D)"; \
 	fi
-	@echo "   $(B)$(YEL)Building visualizer$(D)"
+	@echo "   $(B)$(YEL)Building visualizer 🔨$(D)"
 	@mkdir -p push_swap_visualizer/build 
 	@cd push_swap_visualizer/build && cmake .. -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && make
 	@echo "   $(B)$(GRN)Visualizer build complete$(D): $(_SUCCESS)"
@@ -125,22 +126,21 @@ visualizer:
 
 
 clean:				## Remove object files
-	@echo "   $(B)$(YEL)Cleaning object files$(D)"
+	@echo "   $(B)$(YEL)Cleaning object files $(D)"
 	@$(RM) $(BUILD_PATH); 
-	@echo "   $(B)$(YEL)Removing $(CYA)$(BUILD_PATH)$(YEL) folder & files$(D): $(_SUCCESS) 🫰"; \
+	@echo "   $(B)$(YEL)Removing $(CYA)$(BUILD_PATH)$(YEL) folder & files$(D): $(_SUCCESS) 🧹"; \
 
 fclean: clean			## Remove executable and .gdbinit
-	@echo "   $(B)$(YEL)Cleaning executables$(D)"
+	@echo "   $(B)$(YEL)Cleaning executables $(D)"
 	@$(RM) $(NAME);
-	@echo "   $(B)$(YEL)Removing $(CYA)$(NAME)$(YEL) file: $(D) $(_SUCCESS) 🫰"; \
+	@echo "   $(B)$(YEL)Removing $(CYA)$(NAME)$(YEL) file: $(D) $(_SUCCESS) 🧹"; \
 
 libclean: fclean	## Remove libs
-	@echo "   $(B)$(YEL)Cleaning libraries$(D)"
+	@echo "   $(B)$(YEL)Cleaning libraries $(D)"
 	@$(RM) $(LIBS_PATH)
 	@$(RM) checker_linux
 	@$(RM) push_swap_visualizer
-	@$(RM) push_swap.sh
-	@echo "   $(B)$(YEL)Removing $(CYA)lib & checker$(D) : $(_SUCCESS) 🫰"
+	@echo "   $(B)$(YEL)Removing $(CYA)lib & checker$(D) : $(_SUCCESS) 🧹"
 
 re: libclean all	## Purge & Recompile
 
