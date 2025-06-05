@@ -1,7 +1,6 @@
 <div align="center">
 
-  <!-- Optionally add a relevant banner image here -->
-  <!-- ![push_swap_banner](URL_TO_IMAGE) -->
+![push_swape](https://github.com/user-attachments/assets/545044e6-550c-4114-ae17-eb472b62aab4)
 
 </div>
 
@@ -21,7 +20,7 @@ I implemented the solution using linked lists for stack management and the Radix
 
 | Grade | Evaluation Information |
 | :---- | :--------------------- |
-| <!-- Example badge: <img src="https://img.shields.io/badge/100%20%2F%20100%20%E2%98%85-success"/> --> | `3 peers` `30 mins` |
+| <img src="https://img.shields.io/badge/84%20%2F%20100%20%E2%98%85-success"/> | `3 peers` `30 mins` |
 
 </div>
 
